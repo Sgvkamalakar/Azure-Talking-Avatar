@@ -44,6 +44,7 @@ with st.sidebar:
     st.markdown("[Source Code](https://github.com/Sgvkamalakar/Azure-Talking-Avatar)")
     st.markdown("[Explore my Codes](https://github.com/sgvkamalakar)")
     st.markdown("[Connect with me on LinkedIn](https://www.linkedin.com/in/sgvkamlakar)")
+    st.markdown("[Developed with 💓 by Kamalakar]")
     
 
 def submit_synthesis(text):
