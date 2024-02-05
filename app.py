@@ -141,12 +141,12 @@ def main():
 footer = """<style>
 a:link , a:visited{
     color: #00aadd;
-    background-color:#0e1117 ;
+    background-color: transparent;
 }
 
 a:hover, a:active {
     color: blue;
-    background-color: #0e1117;
+    background-color: transparent;
     text-decoration: underline;
 }
 
@@ -155,7 +155,7 @@ a:hover, a:active {
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color:transparent;
+    background-color:#0e1117;
     color: white;
     text-align: center;
     padding: 10px;  /* Added padding for better appearance */
@@ -176,7 +176,7 @@ a:hover, a:active {
 }
 </style>
 <div class="footer">
-    <p>Developed with <span class="red-heart">❤</span> using <a href="https://learn.microsoft.com/en-us/azure/ai-services/speech-service/text-to-speech-avatar/what-is-text-to-speech-avatar" target="_blank">Azure Speech Services</a>  by <a href="https://www.linkedin.com/in/sgvkamalakar" target="_blank">Kamalakar</a></p>
+    <p>Developed with <span class="red-heart">❤</span> using <a href="https://speech.microsoft.com/" target="_blank">Azure Speech Services</a>  by <a href="https://www.linkedin.com/in/sgvkamalakar" target="_blank">Kamalakar</a></p>
 </div>
 """
 
