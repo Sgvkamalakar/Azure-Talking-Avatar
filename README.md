@@ -1,6 +1,8 @@
-
 # Azure Text-to-Speech with Avatar
 
+<p align="center">
+  <img src="https://github.com/Sgvkamalakar/Azure-Talking-Avatar/assets/103712713/09fc79f9-cc68-4354-bae7-e75e24add235" width="400" height="400"/>
+</p>
 This Streamlit app allows you to submit and monitor batch synthesis jobs using Azure Text-to-Speech with Avatar. It leverages the Azure AI Services to create talking avatars based on the provided text.
 
 ## Usage
