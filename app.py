@@ -40,6 +40,7 @@ with st.sidebar:
     st.markdown("[Source Code](https://github.com/Sgvkamalakar/Azure-Talking-Avatar)")
     st.markdown("[Explore my Codes](https://github.com/sgvkamalakar)")
     st.markdown("[Connect with me on LinkedIn](https://www.linkedin.com/in/sgvkamlakar)")
+    st.markdown("Learn more about Text-to-Speech Avatar on Microsoft Azure [here](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/text-to-speech-avatar/what-is-text-to-speech-avatar)")
     st.markdown("Developed with 💓 by Kamalakar")
     
 
