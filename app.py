@@ -136,51 +136,7 @@ def main():
                         st.error('Batch avatar synthesis job failed ❌')
                         break
                     else:
-                        time.sleep(5)  
-
-footer = """<style>
-a:link , a:visited{
-    color: #00aadd;
-    background-color: transparent;
-}
-
-a:hover, a:active {
-    color: blue;
-    background-color: transparent;
-    text-decoration: underline;
-}
-
-.footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color:#0e1117;
-    color: white;
-    text-align: center;
-    padding: 10px;  /* Added padding for better appearance */
-}
-
-.footer p {
-    margin-bottom: 5px;  /* Adjusted margin for better spacing */
-}
-
-.footer a {
-    text-decoration: none;
-}
-.red-heart {
-    color: red;  /* Set the color of the heart emoji to red */
-}
-.footer a:hover {
-    text-decoration: underline;
-}
-</style>
-<div class="footer">
-    <p>Developed with <span class="red-heart">❤</span> using <a href="https://speech.microsoft.com/" target="_blank">Azure Speech Services</a>  by <a href="https://www.linkedin.com/in/sgvkamalakar" target="_blank">Kamalakar</a></p>
-</div>
-"""
-
-st.markdown(footer, unsafe_allow_html=True)
+                        time.sleep(5)
 
 if __name__ == '__main__':
     main()
