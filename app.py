@@ -176,7 +176,7 @@ a:hover, a:active {
 }
 </style>
 <div class="footer">
-    <p>Developed with <span class="red-heart">❤</span> using <a href="https://speech.microsoft.com/" target="_blank">Azure Speech Services</a>  by <a href="https://www.linkedin.com/in/sgvkamalakar" target="_blank">Kamalakar</a></p>
+    <p>Developed with <span class="red-heart">❤</span> using <a href="https://learn.microsoft.com/en-us/azure/ai-services/speech-service/text-to-speech-avatar/what-is-text-to-speech-avatar" target="_blank">Azure Speech Services</a>  by <a href="https://www.linkedin.com/in/sgvkamalakar" target="_blank">Kamalakar</a></p>
 </div>
 """
 
