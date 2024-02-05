@@ -141,12 +141,12 @@ def main():
 footer = """<style>
 a:link , a:visited{
     color: #00aadd;
-    background-color: transparent;
+    background-color:#0e1117 ;
 }
 
 a:hover, a:active {
     color: blue;
-    background-color: transparent;
+    background-color: #0e1117;
     text-decoration: underline;
 }
 
