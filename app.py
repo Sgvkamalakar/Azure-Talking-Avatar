@@ -41,7 +41,7 @@ with st.sidebar:
     style=st.selectbox('Avatar Style',["Casual-Sitting","Graceful-Sitting","Technical-Sitting","Graceful-Standing","Technical-Standing"],index=1)
     style=style.lower()
     voice=lang_voices[lang][1]
-    st.markdown("[Source Code](https://github.com/Sgvkamalakar/Azure_AI_Speech_Services)")
+    st.markdown("[Source Code](https://github.com/Sgvkamalakar/Azure-Talking-Avatar)")
     st.markdown("[Explore my Codes](https://github.com/sgvkamalakar)")
     st.markdown("[Connect with me on LinkedIn](https://www.linkedin.com/in/sgvkamlakar)")
     
