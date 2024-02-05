@@ -37,17 +37,13 @@ lang_voices = {
 }
 
 with st.sidebar:
-    lang=st.selectbox('Choose the language',list(lang_voices.keys()), index=5) 
-    style=st.selectbox('Avatar Style',["Casual-Sitting","Graceful-Sitting","Technical-Sitting","Graceful-Standing","Technical-Standing"],index=1)
-    style=style.lower()
-    voice=lang_voices[lang][1]
     st.markdown("[Source Code](https://github.com/Sgvkamalakar/Azure-Talking-Avatar)")
     st.markdown("[Explore my Codes](https://github.com/sgvkamalakar)")
     st.markdown("[Connect with me on LinkedIn](https://www.linkedin.com/in/sgvkamlakar)")
     st.markdown("Developed with 💓 by Kamalakar")
     
 
-def submit_synthesis(text):
+def submit_synthesis(text,voice,style):
     url = f'https://{SERVICE_REGION}.{SERVICE_HOST}/api/texttospeech/3.1-preview1/batchsynthesis/talkingavatar'
     header = {
         'Ocp-Apim-Subscription-Key': SUBSCRIPTION_KEY,
@@ -120,25 +116,35 @@ def list_synthesis_jobs(skip: int = 0, top: int = 100):
 
 
 def main():
+    
     st.title("Azure Text-to-Talking Avatar")
     # st.info()
+    col1,col2=st.columns(2)
+    with col1:
+        lang=st.selectbox('Choose the language',list(lang_voices.keys()), index=5) 
+    with col2:
+        style=st.selectbox('Avatar Style',["Casual-Sitting","Graceful-Sitting","Technical-Sitting","Graceful-Standing","Technical-Standing"],index=1)
+    style=style.lower()
+    voice=lang_voices[lang][1]
     text_input = st.text_area(f'Type text in {lang}')
     submit_button = st.button("Submit Job")
     if submit_button:
-        with st.spinner("Processing..."):
-            job_id = submit_synthesis(text_input)
-            if job_id is not None:
-                while True:
-                    status = get_synthesis(job_id)
-                    if status == 'Succeeded':
-                        st.success('Batch avatar synthesis job succeeded ✅')
-                        break
-                    elif status == 'Failed':
-                        st.error('Batch avatar synthesis job failed ❌')
-                        break
-                    else:
-                        time.sleep(5)
-
+        if text_input.strip()!='':
+            with st.spinner("Processing..."):
+                job_id = submit_synthesis(text_input,voice,style)
+                if job_id is not None:
+                    while True:
+                        status = get_synthesis(job_id)
+                        if status == 'Succeeded':
+                            st.success('Batch avatar synthesis job succeeded ✅')
+                            break
+                        elif status == 'Failed':
+                            st.error('Uh-oh! The avatar synthesis job took an unexpected turn. ❌')
+                            break
+                        else:
+                            time.sleep(5)
+        else:
+            st.info("Give me something to work with! How about a dazzling sentence? 😄")
 if __name__ == '__main__':
     main()
 
