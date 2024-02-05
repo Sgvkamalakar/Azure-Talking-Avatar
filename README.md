@@ -87,6 +87,7 @@ The application supports multiple languages, each associated with a specific tal
 ## Demo
 Check out the demo video:
 
+https://github.com/Sgvkamalakar/Azure-Talking-Avatar/assets/103712713/adf5c293-e1cc-4fb5-94e2-b87ca5f5501c
 
 
 ## Setup
