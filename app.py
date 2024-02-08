@@ -43,7 +43,6 @@ with st.sidebar:
     st.markdown("Learn more about Text-to-Speech Avatar on Microsoft Azure [here](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/text-to-speech-avatar/what-is-text-to-speech-avatar)")
     st.markdown("Developed with 💓 by Kamalakar")
     
-
 def submit_synthesis(text,voice,style):
     url = f'https://{SERVICE_REGION}.{SERVICE_HOST}/api/texttospeech/3.1-preview1/batchsynthesis/talkingavatar'
     header = {
@@ -81,8 +80,18 @@ def submit_synthesis(text,voice,style):
         return response.json()["id"]
     else:
         logger.error(f'Failed to submit batch avatar synthesis job: {response.text}')
+        return None
 
-
+def get_content_from_url(decoded_url):
+    try:
+        response = requests.get(decoded_url)
+        if response.status_code == 200:
+            return response.content  # Return the content of the response
+        else:
+            return f"Error: Unable to retrieve content from URL. Status code: {response.status_code}"
+    except Exception as e:
+        return f"Error: {str(e)}"
+    
 def get_synthesis(job_id):
     url = f'https://{SERVICE_REGION}.{SERVICE_HOST}/api/texttospeech/3.1-preview1/batchsynthesis/talkingavatar/{job_id}'
     header = {
@@ -93,13 +102,18 @@ def get_synthesis(job_id):
         logger.debug('Get batch synthesis job successfully')
         logger.debug(response.json())
         if response.json()['status'] == 'Succeeded':
-            logger.info(f'Batch synthesis job succeeded, download URL: {response.json()["outputs"]["result"]}')
-            video_url = f'{response.json()["outputs"]["result"]}'
+            logger.info(f'Batch synthesis job succeeded. Download URL: {response.json()["outputs"]["result"]}')
+            video_url = response.json()["outputs"]["result"]
             decoded_url = unquote(video_url)
-            st.video(decoded_url)
-        
+            con=get_content_from_url(decoded_url)
+            if len(con)<100:
+                st.error("An error occurred while processing the request. Please try again later 😢")
+                return 0
+            else:
+                st.markdown(f"You can download the synthesized avatar video [here]({decoded_url}).")
+                st.video(decoded_url)
+                return 1
 
-        return response.json()['status']
     else:
         logger.error(f'Failed to get batch synthesis job: {response.text}')
 
@@ -119,7 +133,7 @@ def list_synthesis_jobs(skip: int = 0, top: int = 100):
 def main():
     
     st.title("Azure Text-to-Talking Avatar")
-    # st.info()
+    
     col1,col2=st.columns(2)
     with col1:
         lang=st.selectbox('Choose the language',list(lang_voices.keys()), index=5) 
@@ -136,16 +150,17 @@ def main():
                 if job_id is not None:
                     while True:
                         status = get_synthesis(job_id)
-                        if status == 'Succeeded':
+                        if status == 1:
                             st.success('Batch avatar synthesis job succeeded ✅')
                             break
-                        elif status == 'Failed':
+                        elif status == 0:
                             st.error('Uh-oh! The avatar synthesis job took an unexpected turn. ❌')
                             break
                         else:
                             time.sleep(5)
         else:
             st.info("Give me something to work with! How about a dazzling sentence? 😄")
+            
 if __name__ == '__main__':
     main()
 
