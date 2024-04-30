@@ -12,7 +12,6 @@ logger = logging.getLogger(__name__)
 load_dotenv()
 SUBSCRIPTION_KEY = os.getenv('SUBSCRIPTION_KEY')
 SERVICE_REGION = os.getenv('SERVICE_REGION')
-SERVICE_HOST = os.getenv('SERVICE_HOST')
 
 st.set_page_config(page_title="Talking Avatar", page_icon="🗣️",initial_sidebar_state="auto",layout='centered')
 NAME = "Text-to-Speech"
@@ -118,7 +117,7 @@ def get_synthesis(job_id):
         logger.error(f'Failed to get batch synthesis job: {response.text}')
 
 def list_synthesis_jobs(skip: int = 0, top: int = 100):
-    url = f'https://{SERVICE_REGION}.{SERVICE_HOST}/api/texttospeech/3.1-preview1/batchsynthesis/talkingavatar?skip={skip}&top={top}'
+    url = f'https://{SERVICE_REGION}.customvoice.api.speech.microsoft.com/api/texttospeech/3.1-preview1/batchsynthesis/talkingavatar?skip={skip}&top={top}'
     header = {
         'Ocp-Apim-Subscription-Key': SUBSCRIPTION_KEY
     }

@@ -99,7 +99,6 @@ To run the application, you need to set up your Azure Text-to-Speech subscriptio
 ```dotenv
 SUBSCRIPTION_KEY=<your_subscription_key>
 SERVICE_REGION=<your_service_region>
-SERVICE_HOST=<your_service_host>
 ```
 
 ## References
