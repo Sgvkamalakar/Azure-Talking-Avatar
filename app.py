@@ -43,7 +43,7 @@ with st.sidebar:
     st.markdown("Developed with 💓 by Kamalakar")
     
 def submit_synthesis(text,voice,style):
-    url = f'https://{SERVICE_REGION}.{SERVICE_HOST}/api/texttospeech/3.1-preview1/batchsynthesis/talkingavatar'
+    url = f'https://{SERVICE_REGION}.customvoice.api.speech.microsoft.com/api/texttospeech/3.1-preview1/batchsynthesis/talkingavatar'
     header = {
         'Ocp-Apim-Subscription-Key': SUBSCRIPTION_KEY,
         'Content-Type':'application/json'
@@ -92,7 +92,7 @@ def get_content_from_url(decoded_url):
         return f"Error: {str(e)}"
     
 def get_synthesis(job_id):
-    url = f'https://{SERVICE_REGION}.{SERVICE_HOST}/api/texttospeech/3.1-preview1/batchsynthesis/talkingavatar/{job_id}'
+    url = f'https://{SERVICE_REGION}.customvoice.api.speech.microsoft.com/api/texttospeech/3.1-preview1/batchsynthesis/talkingavatar/{job_id}'
     header = {
         'Ocp-Apim-Subscription-Key': SUBSCRIPTION_KEY
     }
