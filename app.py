@@ -144,6 +144,8 @@ def main():
     submit_button = st.button("Submit Job")
     st.error("The resource group associated with this project has been deactivated, resulting in the current non-functionality of the app 🤧... I apologize for any inconvenience caused 😔...")
     st.info("If you require further assistance or have any questions, feel free to reach out to me at sgvkamalakar@gmail.com")
+    st.subheader("Sample Video")
+    st.video("demo/demo.webm")
     if submit_button:
         if text_input.strip()!='':
             with st.spinner("Processing..."):
