@@ -12,7 +12,7 @@ logger = logging.getLogger(__name__)
 load_dotenv()
 SUBSCRIPTION_KEY = os.getenv('SUBSCRIPTION_KEY')
 SERVICE_REGION = os.getenv('SERVICE_REGION')
-
+SERVICE_HOST="customvoice.api.speech.microsoft.com"
 st.set_page_config(page_title="Talking Avatar", page_icon="🗣️",initial_sidebar_state="auto",layout='centered')
 NAME = "Text-to-Speech"
 DESCRIPTION = "Using Azure AI Services"
