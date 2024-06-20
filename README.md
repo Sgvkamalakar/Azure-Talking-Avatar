@@ -94,7 +94,10 @@ https://github.com/Sgvkamalakar/Azure-Talking-Avatar/assets/103712713/adf5c293-e
 
 
 ## Setup
+
 To run the application, you need to set up your Azure Text-to-Speech subscription key, service region, and service host. You can set these values in a `.env` file or directly in the script.
+
+The text-to-speech avatar feature is only available in these service regions: West US 2, West Europe, and Southeast Asia. Create a resource group in these regions and use the same.
 
 ```dotenv
 SUBSCRIPTION_KEY=<your_subscription_key>
